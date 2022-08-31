@@ -15,19 +15,21 @@ let soldier = {
     }
   },
   recharge: function () {
-    if (this.weapon.bullets < 30) {
+    if (this.supplies == 0) {
+      console.log("не осталось припасов");
+    }
+    else{
       this.weapon.bullets = 30;
       this.supplies--;
       console.log("перезарядка..");
     }
-    if (this.supplies == 0) {
-      console.log("не осталось припасов");
-    }
   },
   hurt: function () {
-    this.health--;
     if (this.health <= 0) {
       console.log("Ты проиграл");
+    }else {
+      this.health--;
     }
   },
 };
+soldier.recharge()
